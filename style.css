@@ -1,0 +1,204 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background-light-theme-color: #ebe6c7;
+  --background-dark-theme-color: #4e334e;
+  --color-light-theme: #4e334e;
+  --color-dark-theme: #ebe6c7;
+  --toggle-background-light-theme-color: #4e334e;
+  --toggle-background-dark-theme-color: #ebe6c7;
+  --toggle-circle-background-light-theme-color: #ebe6c7;
+  --toggle-circle-background-dark-theme-color: #4e334e;
+}
+
+body {
+  transition: background-color 0.5s ease;
+  background-color: var(--background-light-theme-color);
+  color: var(--color-light-theme);
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  min-height: 100vh;
+}
+
+.toggle-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+.switch {
+  display: inline-block;
+  height: 24px;
+  width: 40px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--toggle-background-light-theme-color);
+  transition: 0.4s;
+  border-radius: 20px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 4px;
+  background-color: var(--toggle-circle-background-light-theme-color);
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--toggle-background-dark-theme-color);
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+.night-mode {
+  background-color: var(--background-dark-theme-color);
+  color: var(--color-dark-theme);
+  #highlightedText {
+    color: var(--color-light-theme);
+  }
+  .slider:before {
+    background-color: var(--toggle-circle-background-dark-theme-color);
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  white-space: nowrap;
+}
+
+.form {
+  box-sizing: border-box;
+  width: 90%;
+  max-width: 700px;
+  height: 450px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.9); /* Reduced the opacity for a softer shadow */
+}
+
+.form p {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.form div {
+  margin-bottom: 25px; /* Adjusted margin */
+}
+
+textarea,
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+}
+
+.radio-buttons {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/*#standard,
+  #serbian {
+    accent-color: #00ba7c;
+  }*/
+
+/* Styles for browsers that do support accent-color */
+@supports (accent-color: #00ba7c) {
+  input[type="radio"],
+  input[type="checkbox"] {
+    accent-color: #00ba7c;
+  }
+}
+
+button {
+  background-color: #00ba7c;
+  color: white;
+  border: none;
+  font-size: 0.7em;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.9);
+}
+
+.highlight {
+  background-color: yellow;
+}
+
+.active {
+  background-color: orange; /* Different color to indicate active selection */
+}
+
+#highlightedText {
+  white-space: pre-wrap;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background: #fff;
+}
+
+.button-container {
+  position: fixed;
+  bottom: 16px; /* Increased spacing from the bottom */
+  left: 0;
+  right: 0; /* Expanded to take full width */
+  display: flex;
+  justify-content: center; /* Centered buttons horizontally */
+  gap: 8px; /* Added gap for spacing between buttons */
+}
+
+.button-container button {
+  flex: 1; /* Buttons take equal space */
+  max-width: 160px; /* Max width for each button */
+}
+
+@media (max-width: 600px) {
+  .form {
+    width: 100%;
+    margin: 10px;
+    padding: 10px;
+    font-size: 0.9em;
+  }
+
+  .button-container {
+    flex-direction: column; /* Stack buttons vertically on smaller screens */
+  }
+
+  .button-container button {
+    width: 90%; /* Slightly smaller buttons for smaller screens */
+    margin: 5px auto; /* Center buttons with auto margins */
+  }
+}

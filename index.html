@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word counter</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="toggle-container">
+      <label class="switch">
+        <label for="toggle" class="visually-hidden"
+          >Toggle Night and Day Mode</label
+        >
+        <input type="checkbox" id="toggle" />
+        <span class="slider round"></span>
+      </label>
+    </div>
+    <div class="form">
+      <div>
+        <label for="textInput">Type or paste your text:</label>
+        <textarea
+          id="textInput"
+          placeholder="Please, type or paste text here..."
+        ></textarea>
+      </div>
+      <div>
+        <label for="wordInput">Word to count:</label>
+        <input type="text" id="wordInput" placeholder="Please, enter word" />
+      </div>
+      <div class="radio-buttons">
+        <p>Please select the option you prefer:</p>
+        <label for="all">
+          <input type="radio" id="all" name="fav_option" value="all" />
+          All words
+        </label>
+        <label for="exact_word">
+          <input
+            type="radio"
+            id="exact_word"
+            name="fav_option"
+            value="exact_word"
+          />
+          Exact word
+        </label>
+        <label for="part_of_word">
+          <input
+            type="radio"
+            id="part_of_word"
+            name="fav_option"
+            value="part_of_word"
+          />
+          Part of word
+        </label>
+      </div>
+      <div>
+        <button id="countWord">Count and Highlight Word</button>
+      </div>
+      <div>
+        <p>Counted word: <span id="wordCount">0</span></p>
+      </div>
+      <div id="highlightedText"></div>
+    </div>
+    <div class="button-container">
+      <button id="clearFields">Clear Fields</button>
+      <button id="previous">Previous Highlight</button>
+      <button id="next">Next Highlight</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
