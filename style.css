@@ -185,6 +185,10 @@ button {
   max-width: 160px; /* Max width for each button */
 }
 
+#clearFields {
+  background-color: #a6427c;
+}
+
 @media (max-width: 600px) {
   .form {
     width: 100%;
